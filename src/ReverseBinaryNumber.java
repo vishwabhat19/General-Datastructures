@@ -34,6 +34,8 @@ public class ReverseBinaryNumber {
 		while(lsbIndex<msbIndex) {
 			//Call the swap method with the number and the indices
 			x = swapBits(x,lsbIndex,msbIndex);
+			lsbIndex++;
+			msbIndex--;
 		}
 		
 		return x;
