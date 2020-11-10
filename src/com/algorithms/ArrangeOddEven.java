@@ -1,6 +1,8 @@
 package com.algorithms;
 
 public class ArrangeOddEven {
+	
+	//O(n)
 
 	public static void main(String[] args) {
 		
