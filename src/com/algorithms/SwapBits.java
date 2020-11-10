@@ -1,3 +1,4 @@
+package com.algorithms;
 
 public class SwapBits {
 	

@@ -1,3 +1,4 @@
+package com.algorithms;
 import java.util.Scanner;
 
 public class SieveOfEratosthenes {
@@ -26,6 +27,11 @@ public class SieveOfEratosthenes {
 		}
 		
 		//Start checking for each number from 2
+		/*
+		 * We check for p*p <=n because to
+		 * find all the prime numbers until n, it will be enough just to perform the sifting 
+		 * only by the prime numbers, which do not exceed the root of n.
+		 */
 		for(int p=2;(p*p)<=n;p++) {
 			
 			for(int i = p*p;i<=n;i=i+p) {
@@ -35,6 +41,7 @@ public class SieveOfEratosthenes {
 			}
 		}
 		
+		//Printing the numbers
 		for(int i=2;i<=n;i++) {
 			if(b[i]==true) {
 				System.out.println(i);
