@@ -3,9 +3,9 @@ package com.algorithms;
 public class QuickSort {
 
 	public static void main(String[] args) {
-		int a[] = {2,3,5,7,11,13,17,10};
+		int a[] = {11,2,10,1,4};
 		
-		quickSort(a,0,a.length);
+		quickSort(a,0,a.length-1);
 		
 		for(int n:a) System.out.println(n);
 
@@ -15,7 +15,7 @@ public class QuickSort {
 		
 		if(p<r) {
 			int q = partition(a,p,r);
-			quickSort(a,p,q);
+			quickSort(a,p,q-1);
 			quickSort(a,q+1,r);
 		}
 		
@@ -23,22 +23,29 @@ public class QuickSort {
 	
 	static int partition(int a[],int p,int r) {
 		
-		int lesserSortedIndex = p-1;
-		int pivotIndex = r-1;
-		for(int i=p;i<r;i++) {
-			if(a[i]<a[pivotIndex]) {
-				//Take this element and put in the sorted array and increment the lesserSortedIndex
-				lesserSortedIndex++;
-				int temp = a[i]; 
-				a[i] = a[lesserSortedIndex];
-				a[lesserSortedIndex] = temp;
-				
+		/*
+		 * How do you write the partition algorithm
+		 */
+		//Take some element as pivot - lets take the last element as pivot
+		int pivotIndex = r;
+		int lessThanPivotArrayIndex = p-1;
+		for(int j=p;j<pivotIndex;j++) {
+			if(a[j]<a[pivotIndex]) {
+				//This means that this element is less than Pivot element so increase the lessThanPivotArrayIndex
+				//Swap it with the next element which we don't know is greater or lesser than pivot element
+				int temp = a[j];
+				lessThanPivotArrayIndex++; 
+				a[j] = a[lessThanPivotArrayIndex];
+				a[lessThanPivotArrayIndex] = temp;
 			}
+			
 		}
-		int temp = a[lesserSortedIndex+1];
-		a[lesserSortedIndex+1] = a[pivotIndex];
+		//swap with pivot index
+		int temp = a[lessThanPivotArrayIndex+1];
+		a[lessThanPivotArrayIndex+1] = a[pivotIndex];
 		a[pivotIndex] = temp;
-		return (lesserSortedIndex+1);
+		return (lessThanPivotArrayIndex+1);
+		
 	}
 
 }
