@@ -15,6 +15,8 @@ public class FindMedianOfTwoSortedArrays {
 	
 	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		
+		double median = 0.0;
+		
 		/*
 		 * if size of both arrays adds up to be even then we have median = sum of middle two elements by two
 		 * else median = middle element
@@ -27,10 +29,7 @@ public class FindMedianOfTwoSortedArrays {
 		if(l1==0 && l2==0) {
 			return 0.0;
 		}
-		else if(l1!=0 && l2 ==0) {
-			//nums1 not empty
-			
-		}
+		
 		else if(l1!=0 && l2!=0) {
 			
 
@@ -50,7 +49,7 @@ public class FindMedianOfTwoSortedArrays {
 				totalIndex++;
 			}
 			
-			double median = 0.0;
+			
 			
 			if(oddCase) {
 				
@@ -101,13 +100,12 @@ public class FindMedianOfTwoSortedArrays {
 				median = (adder+lastAddedValue)/2.0;
 			}
 			
-			return median;
+			
 			
 		}
 		
 			
-		
-		
+		return median;
 		
 		
         
