@@ -21,7 +21,7 @@ public class RemoveLoopLinkedList {
 		
 		n1.next = n2;
 		n2.next = n3;
-		n3.next = n2;
+		n3.next = null;
 		
 		NodeClass temp = n1;
 		/*while(null!=temp) {
@@ -48,7 +48,7 @@ public class RemoveLoopLinkedList {
     	HashMap<NodeClass, Integer> map = new HashMap<>();
     	NodeClass temp = head;
     	NodeClass previous = null;
-    	while(temp.next!=null) {
+    	while(temp!=null) {
     		
     		if(map.containsKey(temp)) {
     			//This means that this node is already present. So break the link.
