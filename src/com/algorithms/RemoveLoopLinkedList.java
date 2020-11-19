@@ -1,6 +1,7 @@
 package com.algorithms;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 class NodeClass{
 	int data;
@@ -21,7 +22,7 @@ public class RemoveLoopLinkedList {
 		
 		n1.next = n2;
 		n2.next = n3;
-		n3.next = null;
+		n3.next = n2;
 		
 		NodeClass temp = n1;
 		/*while(null!=temp) {
@@ -45,17 +46,17 @@ public class RemoveLoopLinkedList {
     public static void removeLoop(NodeClass head){
         // code here
         // remove the loop without losing any nodes
-    	HashMap<NodeClass, Integer> map = new HashMap<>();
+    	HashSet<NodeClass> set = new HashSet<NodeClass>();
     	NodeClass temp = head;
     	NodeClass previous = null;
     	while(temp!=null) {
     		
-    		if(map.containsKey(temp)) {
+    		if(set.contains(temp)) {
     			//This means that this node is already present. So break the link.
     			//Make the next of the previous node point to null
     			previous.next = null;System.out.println("Loop removed!");break;
     		}
-    		map.put(temp, 1);
+    		set.add(temp);
     		previous = temp;
     		temp = temp.next;
     	}
